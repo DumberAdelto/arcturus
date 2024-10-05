@@ -111,7 +111,7 @@ var x = setInterval(function() {
 //   document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
 //   + minutes + "m " + seconds + "s left. Make your choice.";
 
-    document.getElementById('countdown').innerHTML = `<span style='font-family: monospace'>${days}</span> days, <span style='font-family: monospace'>${hours}</span> hours, <span style='font-family: monospace'>${minutes}</span> minutes and <span style='font-family: monospace'>${seconds}</span> seconds left.<br> Make your choice.`
+    document.getElementById('countdown').innerHTML = `<span style='font-family: monospace'>${days}</span> days, <span style='font-family: monospace'>${hours}</span> hours, <span style='font-family: monospace'>${minutes}</span> minutes and <span style='font-family: monospace'>${seconds}</span> seconds left.<br> Make your choice now.`
 
   // If the count down is finished, write some text
   if (distance < 0) {
