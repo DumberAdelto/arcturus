@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById("starfield");
     const ctx = canvas.getContext("2d");
-    const numStars = 3000;
+    const numStars = 1000;
     const speed = 2;
     const maxDepth = 1500;
     const starColors = ["#FFFFFF", "#FFDDC1", "#FFC0CB", "#ADD8E6", "#B0E0E6"];
@@ -87,35 +87,27 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(updateAndDrawStars);
 });
 
-
 // COUNTDOWN
 
 var countDownDate = new Date("Nov 2, 2024").getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+var x = setInterval(function () {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Get today's date and time
-  var now = new Date().getTime();
+    document.getElementById(
+        "countdown"
+    ).innerHTML = `<span style='font-family: monospace'>${days}</span> days, <span style='font-family: monospace'>${hours}</span> hours, <span style='font-family: monospace'>${minutes}</span> minutes and <span style='font-family: monospace'>${seconds}</span> seconds left.<br> Make your choice now.`;
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-//   document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-//   + minutes + "m " + seconds + "s left. Make your choice.";
-
-    document.getElementById('countdown').innerHTML = `<span style='font-family: monospace'>${days}</span> days, <span style='font-family: monospace'>${hours}</span> hours, <span style='font-family: monospace'>${minutes}</span> minutes and <span style='font-family: monospace'>${seconds}</span> seconds left.<br> Make your choice now.`
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown").innerHTML = "The time is neigh,<br> to choose your side.";
-  }
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML =
+            "The time is neigh,<br> to choose your side.";
+    }
 }, 1000);

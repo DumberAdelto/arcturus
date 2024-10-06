@@ -53,11 +53,11 @@ canvas {
 }
 
 #mHeroT {
-    background: rgb(69, 39, 73);
+    background: rgb(136, 67, 145);
     background: linear-gradient(
         360deg,
-        rgba(69, 39, 73, 1) 0%,
-        rgba(148, 62, 132, 1) 83%
+        rgba(136, 67, 145, 1) 0%,
+        rgba(215, 71, 189, 1) 83%
     );
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
